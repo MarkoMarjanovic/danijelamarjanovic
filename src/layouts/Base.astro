@@ -1,0 +1,30 @@
+---
+const { title = "Danijela Marjanović | Psihoterapija Voždovac", description = "Danijela Marjanović, sertifikovani transakcioni savetnik i psihoterapeut pod supervizijom. Individualna i partnerska psihoterapija na Voždovcu.", canonicalPath = "/" } = Astro.props;
+const baseUrl = "https://danijelamarjanovic.rs";
+const canonical = new URL(canonicalPath, baseUrl).toString();
+const header = "<header class=\"site-header\" id=\"top\">\n    <div class=\"container header-inner\">\n      <a href=\"/\" class=\"brand\" aria-label=\"Danijela Marjanović, početna\"><span class=\"brand-name\">Danijela Marjanović</span><span class=\"brand-sub\">Sertifikovani transakcioni savetnik i psihoterapeut pod supervizijom</span></a>\n      <button class=\"mobile-toggle\" type=\"button\" aria-label=\"Otvori navigaciju\" aria-controls=\"site-nav\" aria-expanded=\"false\"><span></span><span></span><span></span></button>\n      <nav class=\"nav\" id=\"site-nav\" aria-label=\"Glavna navigacija\">\n        <a href=\"/o-meni/\">O meni</a><a href=\"/individualna-psihoterapija/\">Individualna</a><a href=\"/partnerska-psihoterapija/\">Partnerska</a><a href=\"/moj-pristup/\">Moj pristup</a><a href=\"/cesta-pitanja/\">Česta pitanja</a>\n        <button type=\"button\" class=\"btn btn-primary nav-cta js-open-calendar\">Uvodni razgovor <span aria-hidden=\"true\">↗</span></button>\n      </nav>\n    </div>\n  </header>\n  ";
+const footer = "<footer class=\"footer\"><div class=\"container footer-top\"><div><a href=\"/\" class=\"footer-brand\">Danijela Marjanović</a><p>Sertifikovani transakcioni savetnik<br>i psihoterapeut pod supervizijom</p><p>Voždovac, Beograd · Srpski</p></div><div><h3>Na sajtu</h3><a href=\"/o-meni/\">O meni</a><a href=\"/individualna-psihoterapija/\">Usluge</a><a href=\"/moj-pristup/\">Moj pristup</a><a href=\"/cesta-pitanja/\">Česta pitanja</a></div><div><h3>Kontakt</h3><p>Za pitanja i dogovor o uvodnom razgovoru možete pozvati Danijelu.</p><a class=\"footer-link\" href=\"tel:+381652803981\">065 280 3981</a><br><button class=\"footer-link js-open-calendar\" type=\"button\">Primer zakazivanja ↗</button></div></div><div class=\"container footer-bottom\"><span>© <span id=\"year\">2026</span> Danijela Marjanović</span><span>Informativni prototip · Ne prikuplja podatke</span><span>Sadržaj nije zamena za hitnu medicinsku ili psihijatrijsku pomoć.</span></div></footer>\n\n  ";
+const dialog = "<dialog class=\"booking-dialog\" id=\"booking-dialog\" aria-labelledby=\"booking-title\"><div class=\"booking-modal\"><button type=\"button\" class=\"close-dialog\" aria-label=\"Zatvori prozor\">×</button><p class=\"eyebrow\">DEMONSTRACIJA · BEZ REZERVACIJE</p><h2 id=\"booking-title\">Uvodni razgovor · 15 minuta</h2><p>Ovako bi izgledao izbor termina za kratak telefonski razgovor. <strong>Prikazani termini su ilustrativni.</strong> Nijedna rezervacija se ne kreira.</p><div class=\"demo-calendar\"><div class=\"demo-heading\"><strong>Primer dostupnih termina</strong><span>15 minuta · Beograd</span></div><div class=\"demo-dates\" role=\"group\" aria-label=\"Demonstracija izbora termina\"><button type=\"button\" class=\"date-option\" data-label=\"Utorak, 17. novembar · 10:00\">UTO <strong>17</strong><span>10:00</span></button><button type=\"button\" class=\"date-option\" data-label=\"Sreda, 18. novembar · 12:30\">SRE <strong>18</strong><span>12:30</span></button><button type=\"button\" class=\"date-option\" data-label=\"Petak, 20. novembar · 16:00\">PET <strong>20</strong><span>16:00</span></button></div><p class=\"demo-selection\" aria-live=\"polite\">Odaberite primer termina da vidite kako bi izbor izgledao.</p></div><p class=\"demo-warning\">Za stvarne rezervacije biće povezan siguran sistem dostupnosti, potvrde i otkazivanja. Ovaj prototip ne traži niti čuva lične podatke.</p><button class=\"btn btn-primary close-demo\" type=\"button\">Razumem</button></div></dialog>\n";
+---
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#f6f1e9" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<title>{title}</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<a class="skip" href="#main">Preskoči na sadržaj</a>
+<div class="prototype-banner">RAZVOJNI PREGLED · Zakazivanje termina je demonstracija · Sajt još nije završen</div>
+<Fragment set:html={header} />
+<slot />
+<Fragment set:html={footer} />
+<Fragment set:html={dialog} />
+<script is:inline src="/script.js"></script>
+</body>
+</html>
